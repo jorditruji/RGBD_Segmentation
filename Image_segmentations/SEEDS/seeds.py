@@ -109,9 +109,9 @@ def segment_image(img, filename):
     labels = seeds.getLabels()
     labels_remember=labels
     #print(np.unique(labels_remember))
-    print (np.unique(labels_remeber))
-    labels_remeber=make_labels(labels_remember)
-    print (np.unique(labels_remeber))
+    print (np.unique(labels_remember))
+    labels_remember=make_labels(labels_remember)
+    print (np.unique(labels_remember))
     sio.savemat(filename, {filename:labels_remember})
 #print(np.unique(labels))
 
