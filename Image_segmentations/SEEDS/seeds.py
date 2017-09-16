@@ -144,8 +144,8 @@ for folders in names:
     print ("processing folder:"+folders)
 
     for filename in files:
-        longi=len(filename)
-
+        longi=len(filename) 
+        print (filename)
         print (filename[-4:])
         if filename.endswith('.pgm'):
             image=path_to_file+'/'+filename
