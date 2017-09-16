@@ -1,6 +1,6 @@
 import scipy.io
 import matplotlib.pyplot as plt
-from PIL import Image
+#from PIL import Image
 import matplotlib.pyplot as plt
 from itertools import product
 import numpy as np
