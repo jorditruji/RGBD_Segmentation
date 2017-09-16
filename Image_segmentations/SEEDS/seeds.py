@@ -146,7 +146,7 @@ for folders in names:
     for filename in files:
         longi=len(filename)
         print (len(filename))
-        print (filename[longi-3,longi])
+        print (filename[(longi-3):longi])
         if filename.endswith('.pgm'):
             image=path_to_file+'/'+filename
             img = read_pgm(image, byteorder='>')
