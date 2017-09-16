@@ -140,7 +140,7 @@ filelist = []  # list of lists
 for folders in names:
     path_to_file=path_or+folders
 
-    files= load_names_from_folders(path_or)
+    files= load_names_from_folders(path_to_file)
     print ("processing folder:"+folders)
 
     for filename in files:
