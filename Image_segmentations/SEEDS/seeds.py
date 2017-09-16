@@ -118,8 +118,6 @@ def segment_image(img, filename):
     num_label_bits = 2
     labels &= (1<<num_label_bits)-1
     labels *= 1<<(16-num_label_bits)
-
-
     mask = seeds.getLabelContourMask(False)
 
     # stitch foreground & background together
@@ -148,13 +146,14 @@ for folders in names:
         if filename.endswith('.pgm'):
             image=path_to_file+'/'+filename
             img = read_pgm(image, byteorder='>')
+            print ("processing image: "+image)
             h,w = img.shape
             dst_TELEA=img2int(img)
             converted_img1 = cv2.cvtColor(dst_TELEA, cv2.COLOR_GRAY2BGR)
             #print(np.unique(converted_img1))
             converted_img = cv2.cvtColor(converted_img1, cv2.COLOR_BGR2HSV)
 
-            segment_image(converted_img,image)
+            segmented =segment_image(converted_img,image)
             #print(image)
 
 
