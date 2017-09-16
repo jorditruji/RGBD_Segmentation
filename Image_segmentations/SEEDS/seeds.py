@@ -6,8 +6,8 @@ Use [space] to toggle output mode
 Usage:
   seeds.py [<video source>]
 '''
-
 from __future__ import division
+from labeling import make_labels
 import re
 import numpy as np
 from skimage.segmentation import slic
@@ -98,24 +98,19 @@ def segment_image(img, filename):
     num_levels = 6
     num_histogram_bins = 5
     n_iterations=200
-
     height,width,channels = converted_img.shape
-#num_superpixels_new = cv2.getTrackbarPos('Number of Superpixels', 'SEEDS')
-#num_iterations = cv2.getTrackbarPos('Iterations', 'SEEDS')
-
-
-
     seeds = cv2.ximgproc.createSuperpixelSEEDS(width, height, channels,
     num_superpixels, num_levels, prior, num_histogram_bins)
     color_img = np.zeros((height,width,3), np.uint8)
     color_img[:] = (0, 0, 255)
-
     seeds.iterate(converted_img, n_iterations)
 
 # retrieve the segmentation result
     labels = seeds.getLabels()
     labels_remember=labels
     #print(np.unique(labels_remember))
+    labels_remeber=make_labels(labels_remember)
+    print (labels_remeber)
     sio.savemat(filename, {filename:labels_remember})
 #print(np.unique(labels))
 
@@ -131,8 +126,6 @@ def segment_image(img, filename):
     mask_inv = cv2.bitwise_not(mask)
     result_bg = cv2.bitwise_and(converted_img1, converted_img1, mask=mask_inv)
     result_fg = cv2.bitwise_and(color_img, color_img, mask=mask)
-#print(result_fg.shape)
-#print(result_bg.shape)
     result = cv2.add(result_bg, result_fg)
 
 
