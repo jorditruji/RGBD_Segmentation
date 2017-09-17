@@ -146,9 +146,10 @@ for folders in names:
 
     for filename in files:
         longi=len(filename) 
-        print (filename)
-        print (filename[-4:])
-        if filename.endswith('.pgm'):
+       # print (filename)
+        #print (filename[-4:])
+        print (os.path.isfile(path_to_file+filename+".dat"))
+        if filename.endswith('.pgm') and os.path.isfile(path_to_file+filename+".mat")==False:
             image=path_to_file+'/'+filename
             img = read_pgm(image, byteorder='>')
             print ("processing image: "+image)
