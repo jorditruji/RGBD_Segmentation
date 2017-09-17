@@ -1,4 +1,4 @@
-#import scipy.io
+import scipy.io
 import matplotlib.pyplot as plt
 #from PIL import Image
 import matplotlib.pyplot as plt
