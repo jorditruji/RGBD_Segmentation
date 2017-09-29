@@ -30,7 +30,7 @@ def load_data(path,num_img):
 				prova =line.strip().split(' ')
 				images.append(read_image(prova[0]))
 				labels.append(prova[1])
-	images=np.array(image.astype('float32'))
+	images=np.array(images.astype('float32'))
 	return images, labels
 
 def create_mean(path):
