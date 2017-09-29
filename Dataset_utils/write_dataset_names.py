@@ -45,7 +45,7 @@ for folders in names:
 		#		images.append(path_to_file)
 			if fileExtension == '.mat':
 				path_to_file=path_to_folder+files+'.mat'
-				path_to_jpg = path_to_folder+files+'.jpg'
+				path_to_jpg = path_to_folder+files[0:18]+'.jpg'
 				labels.append(path_to_file)
 				images.append(path_to_jpg)
 
