@@ -28,9 +28,11 @@ def load_data(path,num_img):
 			print line
 			if cont<num_img:
 				prova =line.strip().split(' ')
-				images.append(read_image(prova[0]))
+				img=read_image(prova[0])
+				img=np.array(img.astype('float32'))
+				images.append(img)
 				labels.append(prova[1])
-	images=np.array(images.astype('float32'))
+	images=np.array(images)
 	return images, labels
 
 def create_mean(path):
