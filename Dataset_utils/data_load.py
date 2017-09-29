@@ -21,11 +21,13 @@ def load_data(path,num_img):
 	filename = path
 	images =[]
 	labels=[]
+	cont=0
 	with open(filename) as f:
-		for line in f[0:num_img]:
-			prova =line.strip().split(' ')
-			images.append(read_image(prova[0]))
-			labels.append(prova[1])
+		for line in f:
+			if cont<num_img:
+				prova =line.strip().split(' ')
+				images.append(read_image(prova[0]))
+				labels.append(prova[1])
 	images=np.array(image.astype('float32'))
 	return images, labels
 
