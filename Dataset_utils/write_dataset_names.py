@@ -76,5 +76,5 @@ for i, l in zip(X_test, y_test):
 	testfile.write(i + " " + str(l) + "\n")
 
 
-trainfile.close()111
+trainfile.close()
 testfile.close()
