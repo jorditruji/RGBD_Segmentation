@@ -17,15 +17,17 @@ def read_image(name):
 
 	return img_Resize
 
-def load_data(path):
+def load_data(path,num_img):
 	filename = path
 	images =[]
 	labels=[]
 	with open(filename) as f:
-		for line in f:
+		for line in f[0:num_img]:
 			prova =line.strip().split(' ')
 			images.append(read_image(prova[0]))
-
+			labels.append(prova[1])
+	images=np.array(image.astype('float32'))
+	return images, labels
 
 def create_mean(path):
 	filename = path
@@ -48,5 +50,6 @@ def calc_mean(image):
 
 
 
-create_mean('/imatge/jmorera/PSPNet-Keras-tensorflow/train.txt')
+[x_train,x_labels]=load_data('/imatge/jmorera/PSPNet-Keras-tensorflow/train.txt',10)
 
+print (x_train.shape)
