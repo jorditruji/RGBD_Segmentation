@@ -39,11 +39,12 @@ for folders in names:
 	#print n_files
 		for files in names:
 			fileName, fileExtension = os.path.splitext(files)
-			print (fileName, fileExtension)
+			
 		#	if fileExtension == '.jpg' or fileExtension == '.JPG':
 		#		path_to_file=path_to_folder+files
 		#		images.append(path_to_file)
 			if fileExtension == '.mat':
+				print (fileName, fileExtension)
 				path_to_file=path_to_folder+files+'.mat'
 				path_to_jpg = path_to_folder+files[0:18]+'.jpg'
 				labels.append(path_to_file)
