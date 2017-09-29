@@ -66,10 +66,12 @@ os.chdir(outpath)
 trainfile = open("train.txt", "w")
 for i, l in zip(X_train, y_train):
 	trainfile.write(i + " " + str(l) + "\n")
+	print ('train: '+str(i))
 
 testfile = open("val.txt", "w")
 for i, l in zip(X_test, y_test):
 	testfile.write(i + " " + str(l) + "\n")
+	print ('val: '+str(i))
 
 trainfile.close()
 testfile.close()
