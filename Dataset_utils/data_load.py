@@ -23,7 +23,8 @@ def load_data(path,num_img):
 	labels=[]
 	cont=0
 	with open(filename) as f:
-		for line in f:
+		head = list(islice(f, num_img))
+		for line in head:
 			if cont<num_img:
 				prova =line.strip().split(' ')
 				images.append(read_image(prova[0]))
