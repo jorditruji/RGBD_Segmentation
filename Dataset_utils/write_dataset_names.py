@@ -44,7 +44,7 @@ for folders in names:
 		#		path_to_file=path_to_folder+files
 		#		images.append(path_to_file)
 			if fileExtension == '.mat':
-				print (fileName, fileExtension)
+				
 				path_to_file=path_to_folder+files+'.mat'
 				path_to_jpg = path_to_folder+files[0:18]+'.jpg'
 				labels.append(path_to_file)
@@ -64,14 +64,17 @@ y_test = labels[round(len(labels) * percentage):]
 os.chdir(outpath)
 
 trainfile = open("train.txt", "w")
+print("writting train file")
+print (len(X_train))
 for i, l in zip(X_train, y_train):
 	trainfile.write(i + " " + str(l) + "\n")
-	print ('train: '+str(i))
-
+	#print ('train: '+str(i))
+print("writting test file")
+print (len(X_test))
 testfile = open("val.txt", "w")
 for i, l in zip(X_test, y_test):
 	testfile.write(i + " " + str(l) + "\n")
-	print ('val: '+str(i))
 
-trainfile.close()
+
+trainfile.close()111
 testfile.close()
