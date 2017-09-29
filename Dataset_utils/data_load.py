@@ -4,7 +4,7 @@ import numpy as np
 
 import time
 import shutil
-import _pickle as cPickle
+
 import random
 import numpy as np
 from scipy import misc, ndimage
