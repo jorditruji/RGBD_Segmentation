@@ -44,12 +44,13 @@ for folders in names:
 		#		path_to_file=path_to_folder+files
 		#		images.append(path_to_file)
 			if fileExtension == '.mat':
-				print (path_to_file)
-				print(path_to_jpg)
+
 				path_to_file=path_to_folder+fileName+'.mat'
 				path_to_jpg = path_to_folder+fileName[0:12]+'.color.jpg'
 				labels.append(path_to_file)
 				images.append(path_to_jpg)
+				print (path_to_file)
+				print(path_to_jpg)
 
 
 images = np.array(images)
