@@ -1,7 +1,7 @@
 import subprocess
 import os, sys
 import numpy as np
-
+from itertools import islice
 import time
 import shutil
 
@@ -25,6 +25,7 @@ def load_data(path,num_img):
 	with open(filename) as f:
 		head = list(islice(f, num_img))
 		for line in head:
+			print line
 			if cont<num_img:
 				prova =line.strip().split(' ')
 				images.append(read_image(prova[0]))
