@@ -31,7 +31,7 @@ def load_data(path,num_img):
 	with open(filename) as f:
 		head = list(islice(f, num_img))
 		for line in head:
-			print line
+			print (line)
 			if cont<num_img:
 				prova =line.strip().split(' ')
 				img=read_image(prova[0])
