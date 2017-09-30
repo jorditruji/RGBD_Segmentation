@@ -19,7 +19,8 @@ def read_image(name):
 
 def read_label(name):
 	label=io.loadmat(name)
-	print (label)
+
+	print (label.shape)
 	return label
 
 
