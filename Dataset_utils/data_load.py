@@ -36,9 +36,9 @@ def load_data(path,num_img):
 				prova =line.strip().split(' ')
 				img=read_image(prova[0])
 				float_img = img.astype('float16')
-        		centered_image = float_img - DATA_MEAN
-        		bgr_image = centered_image[:, :, ::-1]  # RGB => BGR
-        		input_data = bgr_image[np.newaxis, :, :, :] 
+				centered_image = float_img - DATA_MEAN
+				bgr_image = centered_image[:, :, ::-1]  # RGB => BGR
+				input_data = bgr_image[np.newaxis, :, :, :] 
 				images.append(input_data)
 				labels.append(prova[1])
 	images=np.array(images)
