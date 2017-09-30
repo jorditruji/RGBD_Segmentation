@@ -18,7 +18,7 @@ def read_image(name):
 	return img_Resize
 
 def read_label(name):
-	label=io.loadmat(name)
+	label=io.loadmat(name)[name[:-4]]
 	label=label.astype('uint8')
 	print (label.shape)
 	return label
