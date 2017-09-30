@@ -7,15 +7,21 @@ import shutil
 
 import random
 import numpy as np
-from scipy import misc, ndimage
+from scipy import misc, ndimage, io
 
-
+DATA_MEAN = np.array([[[126.92261499, 114.11585906, 99.15394194]]])  # RGB order
 
 def read_image(name):
 	img=misc.imread(name)
 	img_Resize= misc.imresize(img, (640, 480))
 
 	return img_Resize
+
+def read_label(name):
+	label=io.loadmat(name)
+	print (label)
+	return label
+
 
 def load_data(path,num_img):
 	filename = path
@@ -29,8 +35,11 @@ def load_data(path,num_img):
 			if cont<num_img:
 				prova =line.strip().split(' ')
 				img=read_image(prova[0])
-				img=np.array(img.astype('float32'))
-				images.append(img)
+				float_img = img.astype('float16')
+        		centered_image = float_img - DATA_MEAN
+        		bgr_image = centered_image[:, :, ::-1]  # RGB => BGR
+        		input_data = bgr_image[np.newaxis, :, :, :] 
+				images.append(input_data)
 				labels.append(prova[1])
 	images=np.array(images)
 	return images, labels
@@ -54,8 +63,4 @@ def calc_mean(image):
 	return np.mean(image, axis=(0, 1))
 
 
-
-
-[x_train,x_labels]=load_data('/imatge/jmorera/PSPNet-Keras-tensorflow/train.txt',10)
-
-print (x_train.shape)
+read_label('/projects/world3d/2017-06-scannet/scene0292_00/frame-000175.depth.pgm.mat')
