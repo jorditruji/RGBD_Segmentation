@@ -10,5 +10,5 @@ scannet_path ='/projects/world3d/2017-06-scannet/'
 
 folders = load_names_from_folders(scannet_path)
 for folder in folders:
-	cmd = 'find '+folder+' -name "*.mat"'
+	cmd = 'find '+scannet_path+folder+' -name "*.mat"'
 	subprocess.call(cmd, shell=True)
