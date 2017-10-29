@@ -43,6 +43,7 @@ def load_data(path,num_img):
 				images.append(input_data)
 				labels.append(prova[1])
 	images=np.array(images)
+	labels=np.array(labels)
 	return images, labels
 
 def create_mean(path):
@@ -64,4 +65,3 @@ def calc_mean(image):
 	return np.mean(image, axis=(0, 1))
 
 
-read_label('/projects/world3d/2017-06-scannet/scene0292_00/frame-000175.depth.pgm.mat')
