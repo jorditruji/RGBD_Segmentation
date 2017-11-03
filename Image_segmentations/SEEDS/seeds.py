@@ -20,6 +20,8 @@ import os
 from matplotlib import pyplot
 import scipy.io as sio
 import glob
+
+
 def load_names_from_folders(path):
     names = os.listdir(path)
     return names

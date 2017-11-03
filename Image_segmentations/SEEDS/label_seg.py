@@ -6,6 +6,9 @@ from itertools import product
 import numpy as np
 import cv2
 from quantize import quantize
+
+
+
 veins = []
 img_RGB=cv2.imread('index.jpeg',1)
 img = cv2.GaussianBlur(img_RGB,(7,7),0)

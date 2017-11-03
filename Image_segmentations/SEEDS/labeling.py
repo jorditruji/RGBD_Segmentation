@@ -6,6 +6,9 @@ from itertools import product
 import numpy as np
 import cv2
 
+#SCRIPT DE CLASSIFICACIO DELS PIXELS OBTINGUTS A LA SEGMENTACIO
+
+
 def make_labels(img):
 	padded_data = cv2.copyMakeBorder(img,1,1,1,1,cv2.BORDER_REFLECT)
 	data = img
