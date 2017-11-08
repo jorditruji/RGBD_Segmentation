@@ -41,7 +41,7 @@ out =Dense((307000), name='my_dense')(pspnet_ini.model.layers[-1].output)
 
 inp = pspnet_ini.model.input
 model2 = Model(inp, out)
-model2.compile(loss='mean_squared_error', optimizer='sgd'])
+model2.compile(loss='mean_squared_error', optimizer='sgd')
 model2.summary()
 # TRAINING
 history= model2.fit_generator(
