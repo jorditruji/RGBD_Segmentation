@@ -176,7 +176,11 @@ def load_data_V2(path,num_img):
 				if i%3==0:
 					images=np.array(images)
 					labels=np.array(labels)
+				#	labels= np.transpose(labels)
+					labels=labels.reshape((3, 640, 480, 1))
 					images= np.squeeze(images)
+				#	labels=np.expand_dims(labels, axis=-1)
+ 			#		print(labels.shape,images.shape)
 					#images= np.expand_dims(images,0)
 					yield images, labels
 					images = []

@@ -32,16 +32,16 @@ pspnet_ini.model.summary()
 pspnet_ini.model.layers.pop()
 
 # DELETE INTERPOLATION LAYER:
-pspnet_ini.model.layers.pop()
+#pspnet_ini.model.layers.pop()
 
 # ADD REGRESSION LAYER
 out = Flatten()(pspnet_ini.model.layers[-1].output)
-out =Dense((307000), name='my_dense')(pspnet_ini.model.layers[-1].output)
+out =Dense(1, name='my_dense')(pspnet_ini.model.layers[-1].output)
 
 
 inp = pspnet_ini.model.input
 model2 = Model(inp, out)
-model2.compile(loss='mean_squared_error', optimizer='sgd')
+model2.compile(loss='mean_absolute_error', optimizer='sgd')
 model2.summary()
 # TRAINING
 history= model2.fit_generator(
